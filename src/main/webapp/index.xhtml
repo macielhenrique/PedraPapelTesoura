@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      
+    <h:head>
+        <title>Cadastro de Jogada</title>
+    </h:head>
+    
+    <h:body>
+        <h:form id="form">  <!-- Adicionado ID ao form -->
+            <h1>Cadastro de Jogada</h1>
+            <p:messages id="messages"/>
+
+            <h:panelGrid columns="2">
+                <h:outputLabel for="jogador1" value="Jogador 1:"/>
+                <p:inputText id="jogador1" value="#{jogadaBean.jogada.jogador1}">
+                    <f:validateRequired/>
+                </p:inputText>
+                
+                <h:outputLabel for="jogador2" value="Jogador 2:"/>
+                <p:inputText id="jogador2" value="#{jogadaBean.jogada.jogador2}">
+                    <f:validateRequired/>
+                </p:inputText>
+            </h:panelGrid>
+
+            <p:commandButton value="Salvar" action="#{jogadaBean.salvar}" update="@form messages"/>
+            <p:button value="Ver Listagem" outcome="listagem.xhtml"/>
+        </h:form>
+    </h:body>
+</html>
